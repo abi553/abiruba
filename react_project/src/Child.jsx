@@ -32,15 +32,22 @@ import React from 'react'
 
 function Child({ users }) {
   return (
-    <div>
-      {users.map((user) => (
-       <div key={user.id} className="card" style={{width: "18rem;"}}>
-  <img src={user.images} className="card-img-top" alt="..."/>
-  <div className="card-body">
-    <p className="card-text">{user.title} </p>
-  </div>
-</div>
+    <div className='card-container'>
+      <div className="row">
+      { 
+      users.map((user) => (
+        <div key={user.id} className="col-3">
+          <div  className="card" style={{ width:"18rem;" }}>
+            <img src={user.images} className="card-img-top" alt="..." />
+            <div className="card-body">
+              <h5 className="card-title">{user.title}</h5>
+               <p className="card-text">some quick example text to build on the card title and make up the build of the content.</p>  
+            <a href="#"className="btn btn-primary">go some where</a>
+            </div>
+          </div>
+        </div>
       ))}
+    </div>
     </div>
   )
 }
