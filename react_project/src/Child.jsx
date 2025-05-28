@@ -34,8 +34,7 @@ function Child({ users }) {
   return (
     <div className='card-container'>
       <div className="row">
-      { 
-      users.map((user) => (
+      {users.map((user) => (
         <div key={user.id} className="col-3">
           <div  className="card" style={{ width:"18rem;" }}>
             <img src={user.images} className="card-img-top" alt="..." />

@@ -6,7 +6,8 @@ import Child1 from './child1'
 import UseEffect from './UseEffect'
 import Home from './Home'
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
-import User from'./User'
+import User from './User'
+import axios from 'axios'
 
 // import User from "./User"
 function App() {
@@ -39,11 +40,18 @@ function App() {
   // function handleClick(data){
   //   setName(data)
   const [users, setUsers] = useState([])
-  function data() {
-    const res = fetch("https://dummyjson.com/products")
-      .then((res) => res.json())
-      .then((data) => setUsers(data.products))
-      .catch((err) => console.log("err", err))
+  async function data() {
+    try {
+      //    const res = fetch("https://dummyjson.com/products")
+      // .then((res) => res.json())
+      // .then((data) => setUsers(data.products))
+      // .catch((err) => console.log("err", err))
+      const res = await axios("https://dummyjson.com/products")
+      setUsers(res.data.products)
+      console.log(res.data.products)
+    } catch (error) {
+      console.error("error", error.message)
+    }
 
   }
   useEffect(() => {
@@ -89,7 +97,7 @@ function App() {
           <Route path="/child" element={<Child users={users} />}>
 
           </Route>
-          <Route path='/user' element={<User/>}> </Route>
+          <Route path='/user' element={<User />}> </Route>
         </Routes>
       </Router>
     </>
