@@ -15,6 +15,12 @@ function App() {
     todoDescription:"Going to gym",
     complete: false
   }
+ ,
+    {
+      todoTitle: "Task2",
+    todoDescription:"Going to gym",
+    complete: false
+  }
     ])
     //create todo is create a new todoItems and complete is defalut to false 
     const createTodoItem = (todoTitle,todoDescription) => {
